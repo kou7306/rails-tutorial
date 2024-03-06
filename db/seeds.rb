@@ -6,12 +6,12 @@ User.create!(name:  "Example User",
              admin: true)
 
 # 追加のユーザーをまとめて生成する
-99.times do |n|
-  name  = Faker::Name.name
-  email = "example-#{n+1}@railstutorial.org"
-  password = "password"
-  User.create!(name:  name,
-               email: email,
-               password:              password,
-               password_confirmation: password)
+user_data = []
+password_digest = User.digest('password')
+99.times do |i|
+  user_data << {
+    name: Faker::Name.name,
+    email: "example-#{i+1}@railstutorial.org",
+    password_digest: password_digest,
+  }
 end
