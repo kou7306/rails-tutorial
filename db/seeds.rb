@@ -15,3 +15,4 @@ password_digest = User.digest('password')
     password_digest: password_digest,
   }
 end
+User.insert_all!(user_data)
